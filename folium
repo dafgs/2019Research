@@ -1,0 +1,16 @@
+import folium
+
+places_on_SAF = [('Point Delgada',35.8247988, 128.6456436),
+('Point Arena',35.8761442, 128.5960119),
+('G', 35.8761442,128.5938232),
+('J', 35.888836,128.6093298 )]
+
+
+
+lats = [x[1] for x in places_on_SAF]
+lons = [x[2] for x in places_on_SAF]
+coordinates = zip(lats, lons)
+
+m = folium.Map(location=[35,128.6456436], zoom_start=6, tiles='openstreetmap')
+SAF=folium.PolyLine(locations=coordinates,weight=5,color = 'red')
+m.add_child(SAF)
